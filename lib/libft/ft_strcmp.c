@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 16:45:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/22 15:07:45 by tiacovel         ###   ########.fr       */
+/*   Created: 2023/08/28 18:52:56 by tiacovel          #+#    #+#             */
+/*   Updated: 2024/01/22 14:34:49 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include "libft.h"
-
-typedef struct	s_node
+int	ft_strcmp(char *s1, char *s2)
 {
-	int data;
-	struct s_node* next;
-	struct s_node* prev;
-}	t_node;
+	int	i;
 
-typedef struct s_deque
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && (s1[i] == s2[i]))
+		i++;
+	return (s1[i] - s2[i]);
+}
+/*
+int	main(void)
 {
-	struct s_node	*front;
-	struct s_node	*rear;
-}	t_deque;
+	char s1[] = "Hello";
+	char s2[] = "Hello world";
 
-int		is_num(const char* str);
-int		has_duplicates(char **buffer);
-void	free_split(char **data);
-
-#endif
+	printf("42 function: %d", ft_strcmp(s1, s2));
+	printf("\nSTD function: %d", strcmp(s1, s2));
+	return (0);
+}
+*/

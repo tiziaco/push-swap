@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:49:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/16 18:32:22 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:42:41 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	initilise_stack_str(char *str)
 	buffer = ft_split(str, ' ');
 	while (*buffer != 0)
 	{
-		ft_printf("Yooo\n");
+		ft_printf("%s\n", *buffer);
 		buffer++;
 	}
 }
@@ -36,8 +36,16 @@ void	initilise_stack_args(char **str)
 	}
 }
 
+/* t_deque	*init_stack(char **str)
+{
+	
+} */
+
 int	main(int argc, char **argv)
 {
+	/* t_deque	*stack_a;
+	t_deque	*stack_b; */
+
 	if (argc <= 1)
 	{
 		ft_printf("ERROR: please define at least 1 argument!");
