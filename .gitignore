@@ -4,3 +4,6 @@
 *.o
 *.out
 push_swap
+main
+test
+test*.c

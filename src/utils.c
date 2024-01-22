@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:48:59 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/22 15:06:57 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:22:00 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ void	free_split(char **data)
 {
 	int	i;
 
+	if (data == NULL)
+		return ;
 	i = 0;
 	while (data[i] != NULL)
 	{
 		free(data[i]);
 		i++;
 	}
-	free(data);
+	//free(data);
 }
 
 int	is_num(const char* str)
@@ -76,17 +78,17 @@ int	main(void)
 /* #include <stdio.h>
 int main()
 {
-    char	*string = "8.1 orange banana 8.2 grape";
+	char	*string = "8.1 orange banana 8.2 grape";
 	char	**buffer;
 
 	buffer = ft_split(string, ' ');
 
-    if (has_duplicates(buffer) == 1) {
-        printf("Duplicate strings found.\n");
-    } else {
-        printf("No duplicates found.\n");
-    }
+	if (has_duplicates(buffer) == 1) {
+		printf("Duplicate strings found.\n");
+	} else {
+		printf("No duplicates found.\n");
+	}
 	//printf("TEST: %d\n", ft_strcmp("apple", "app"));
 
-    return 0;
+	return 0;
 } */

@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:55:30 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/22 14:43:47 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:31:07 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,16 @@ void	init_deque(t_deque *deque)
 	deque->rear = NULL;
 }
 
-int is_empty(t_deque *deque)
+int	is_empty(t_deque *deque)
 {
-	return deque->front == NULL;
+	return (deque->front == NULL);
+}
+
+// Function to check if the deque has only one element
+int has_only_one_elem(t_deque *deque)
+{
+    return ((deque->front == deque->rear)
+		|| (deque->front != NULL && deque->front->next == NULL));
 }
 
 void	insert_front(t_deque *deque, int data)

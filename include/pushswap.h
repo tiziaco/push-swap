@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/22 15:07:45 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:48:28 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,17 @@ typedef struct s_deque
 int		is_num(const char* str);
 int		has_duplicates(char **buffer);
 void	free_split(char **data);
+
+void	sa(t_deque *stack_a);
+void	sb(t_deque *stack_b);
+void	ss(t_deque *stack_a, t_deque *stack_b);
+void	pa(t_deque *stack_a, t_deque *stack_b);
+void	pb(t_deque *stack_a, t_deque *stack_b);
+void	ra(t_deque *stack_a);
+void	rb(t_deque *stack_b);
+void	rr(t_deque *stack_a, t_deque *stack_b);
+void	rra(t_deque *stack_a);
+void	rrb(t_deque *stack_b);
+void	rrr(t_deque *stack_a, t_deque *stack_b);
 
 #endif
