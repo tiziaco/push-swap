@@ -6,89 +6,35 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:49:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/22 19:34:43 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:56:38 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pushswap.h"
 
-static void	init_buff_args(char ***buffer, int argc, char **argv)
+void	init_vars(t_deque **stack_a, t_deque **stack_b)
 {
-	int	i;
-	int	j;
-
-	*buffer = (char **)malloc((argc+1) * sizeof(char *));
-	if (*buffer == NULL)
+	*stack_a = (t_deque *)malloc(sizeof(t_deque));
+	*stack_b = (t_deque *)malloc(sizeof(t_deque));
+    if (*stack_a == NULL || *stack_b == NULL)
 	{
-        ft_printf("Memory allocation failed\n");
+        ft_printf("Error\n");
         exit(EXIT_FAILURE);
     }
-	i = 1;
-	j = 0;
-	while (argv[i] != 0)
-	{
-		//char *tmp = argv[i];
-		(*buffer)[j] = ft_strdup(argv[i]);
-		i++;
-		j++;
-	}
-	(*buffer)[j] = NULL;
-}
-
-void	init_buffer(char ***buffer, int argc, char **argv)
-{
-	int	i;
-
-	if (argc == 2)
-		*buffer = ft_split(argv[1], ' ');
-	else
-		init_buff_args(buffer, argc, argv);
-	i = 0;
-	while (buffer[i] != NULL)
-	{
-		if (!is_num(buffer[i]))
-		{
-			free_split(buffer);
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-	if (has_duplicates(buffer) == 1)
-	{
-		free_split(buffer);
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
-}
-
-/* t_deque	*init_stack(char **str)
-{
-	
-} */
-
-void	print_buffer(char **data)
-{
-	int	i;
-
-	i = 0;
-	while (data[i] != NULL)
-	{
-		ft_printf("%s ", data[i]);
-		i++;
-	}
-	free(data);
 }
 
 /* int	main(int argc, char **argv)
 {
 	char	**buffer;
+	t_deque	*stack_a;
+	t_deque	*stack_b;
 
-	buffer = NULL;
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
-	init_buffer(buffer, argc, argv);
-	//init_stack(buffer);
+	buffer = NULL;
+	init_vars(&stack_a, &stack_b);
+	init_buffer(&buffer, argc, argv);
+	init_stack(stack_a, stack_b, buffer);
 	return (0);
 } */
 
@@ -157,15 +103,17 @@ int	main(void)
 	char	**buffer;
 	int		argc;
 	char	**argv;
+	t_deque	*stack_a;
+	t_deque	*stack_b;
 
 	init_argc_argv_2(&argc, &argv);
 
 	buffer = NULL;
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
+	init_vars(&stack_a, &stack_b);
 	init_buffer(&buffer, argc, argv);
-	print_buffer(buffer);
-	//init_stack(buffer);
+	init_stack(stack_a, stack_b, buffer);
 
 	// Free the allocated memory
 	free_split(buffer);

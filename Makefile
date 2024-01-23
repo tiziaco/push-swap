@@ -6,7 +6,7 @@
 #    By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 11:38:10 by tiacovel          #+#    #+#              #
-#    Updated: 2024/01/16 18:10:21 by tiacovel         ###   ########.fr        #
+#    Updated: 2024/01/23 10:45:09 by tiacovel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJ)
 	else \
 		echo "libft.a already exists, skipping build."; \
 	fi
-		$(CC) $(OBJ) -Llib/libft -lft -o $(NAME)
+		$(CC) -g -O0 $(OBJ) -Llib/libft -lft -o $(NAME)
 
 src/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@

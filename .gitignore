@@ -1,4 +1,5 @@
 *.json
+*.pdf
 *.DS*
 *.a
 *.o
