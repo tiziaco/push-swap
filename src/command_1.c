@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:43:22 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/23 13:11:30 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:19:29 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,47 +73,47 @@ void	pa(t_deque *stack_a, t_deque *stack_b)
 		top_b = stack_b->front;
 
 		// Remove top element from stack_b
-		delete_front(stack_b);
+		stack_b->front = top_b->next;
+		if (stack_b->front != NULL)
+			stack_b->front->prev = NULL;
 
 		// Add the element to the top of stack_a
 		top_b->next = stack_a->front;
 		top_b->prev = NULL;
-		if (stack_a->front != NULL) {
+		if (stack_a->front != NULL)
 			stack_a->front->prev = top_b;
-		}
 		stack_a->front = top_b;
 
 		// Update rear if necessary
-		if (stack_a->rear == NULL) {
+		if (stack_a->rear == NULL)
 			stack_a->rear = top_b;
-		}
 	}
 	ft_printf("pa\n");
 }
 
 void	pb(t_deque *stack_a, t_deque *stack_b)
 {
-	t_node *top_a;
+	t_node	*top_a;
 
 	if (stack_a->front != NULL)
 	{
 		top_a = stack_a->front;
 
 		// Remove top element from stack_a
-		delete_front(stack_a);
+		stack_a->front = top_a->next;
+		if (stack_a->front != NULL)
+			stack_a->front->prev = NULL;
 
 		// Add the element to the top of stack_b
 		top_a->next = stack_b->front;
 		top_a->prev = NULL;
-		if (stack_b->front != NULL) {
+		if (stack_b->front != NULL)
 			stack_b->front->prev = top_a;
-		}
 		stack_b->front = top_a;
 
 		// Update rear if necessary
-		if (stack_b->rear == NULL) {
+		if (stack_b->rear == NULL)
 			stack_b->rear = top_a;
-		}
 	}
 	ft_printf("pb\n");
 }
@@ -131,6 +131,9 @@ int main(void)
 	insert_rear(&stack_a, 30);
 	insert_rear(&stack_a, 40);
 
+	insert_rear(&stack_b, 150);
+	insert_rear(&stack_b, 140);
+
 	ft_printf("Deque elements: \n");
 	display_deque(&stack_a);
 
@@ -140,10 +143,12 @@ int main(void)
 	display_deque(&stack_b);
 	ss(&stack_a, &stack_b);
 	display_deque(&stack_a);
-	pa(&stack_b, &stack_a);
+	pa(&stack_a, &stack_b);
 	display_deque(&stack_a);
+	display_deque(&stack_b);
 	pb(&stack_a, &stack_b);
 	display_deque(&stack_a);
+	display_deque(&stack_b);
 
 	free_deque(&stack_a);
 
