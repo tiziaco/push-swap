@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:48:59 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/22 19:22:00 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:01:58 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	free_split(char **data)
 		free(data[i]);
 		i++;
 	}
-	//free(data);
+	free(data);
 }
 
 int	is_num(const char* str)

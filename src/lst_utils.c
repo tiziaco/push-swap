@@ -6,11 +6,25 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:48:12 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/24 17:20:39 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:46:51 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pushswap.h"
+
+int	is_ordered(t_deque *stack)
+{
+	t_node	*current;
+
+	current = stack->front;
+	while (current != NULL && current->next != NULL)
+	{
+		if (current->nbr > current->next->nbr)
+            return (0);
+		current = current->next;
+	}
+	return (1);
+}
 
 int	lst_len(t_deque *deque)
 {

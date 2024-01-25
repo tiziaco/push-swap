@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/24 17:27:38 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:25:04 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	exit_program(int code, t_deque *stack_a, t_deque *stack_b);
 
 int		is_num(const char* str);
 int		has_duplicates(char **buffer);
+int		has_only_one_elem(t_deque *deque);
+int		is_ordered(t_deque *stack);
 int		lst_len(t_deque *deque);
 t_node	*lst_min(t_node *stack);
 t_node	*lst_max(t_node *stack);
@@ -70,5 +72,8 @@ void	rr(t_deque *stack_a, t_deque *stack_b);
 void	rra(t_deque *stack_a);
 void	rrb(t_deque *stack_b);
 void	rrr(t_deque *stack_a, t_deque *stack_b);
+
+void	sort_stack(t_deque *stack_a, t_deque *stack_b);
+void	simple_sort(t_deque *stack_a, t_deque *stack_b);
 
 #endif

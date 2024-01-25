@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:49:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/24 12:01:58 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:50:27 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	exit_program(int code, t_deque *stack_a, t_deque *stack_b)
 {
 	free_deque(stack_a);
 	free_deque(stack_b);
+	free(stack_a);
+	free(stack_b);
 	exit(code);
 }
 
@@ -39,99 +41,36 @@ void	exit_program(int code, t_deque *stack_a, t_deque *stack_b)
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
 	buffer = NULL;
-	init_vars(&stack_a, &stack_b);
 	init_buffer(&buffer, argc, argv);
+	init_vars(&stack_a, &stack_b);
 	init_stack(stack_a, stack_b, buffer);
+	free_split(buffer);
+	exit_program(EXIT_SUCCESS, stack_a, stack_b);
 	return (0);
 } */
 
-void init_argc_argv(int *argc, char ***argv)
-{
-	*argc = 2;
-	*argv = (char **)malloc(*argc * sizeof(char *));
-	if (argv == NULL) {
-		ft_printf("Memory allocation failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	// Allocate memory for a single character and set it to a random char
-	(*argv)[0] = ft_strdup("aaa");
-	if ((*argv)[0] == NULL) {
-		ft_printf("Memory allocation failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	// Allocate memory for a string "10 20 30 40"
-	(*argv)[1] = ft_strdup("10 20 30 40");
-	if ((*argv)[1] == NULL) {
-		ft_printf("Memory allocation failed\n");
-		exit(EXIT_FAILURE);
-	}
-}
-
-void init_argc_argv_2(int *argc, char ***argv)
-{
-	int j;
-	*argc = 5;
-	char *tempValues[] = {"10", "20", "30", "40"};
-
-	*argv = (char **)malloc(*argc * sizeof(char *));
-	if (*argv == NULL) {
-		ft_printf("Memory allocation failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	// Allocate memory for a single character and set it to a random char
-	(*argv)[0] = ft_strdup("aaa");
-	if ((*argv)[0] == NULL) {
-		ft_printf("Memory allocation failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	// Initialize other pointers to NULL
-    for (j = 1; j < *argc; j++) {
-        (*argv)[j] = NULL;
-    }
-
-	// Allocate memory for strings and copy values
-	j = 1;
-	for (int i = 0; i < *argc - 1; i++) {
-		(*argv)[j] = ft_strdup(tempValues[i]);
-		if ((*argv)[j] == NULL) {
-			ft_printf("Memory allocation failed\n");
-			exit(EXIT_FAILURE);
-		}
-		j++;
-	}
-}
 
 int	main(void)
 {
 	char	**buffer;
-	int		argc;
-	char	**argv;
 	t_deque	*stack_a;
 	t_deque	*stack_b;
 
-	init_argc_argv_2(&argc, &argv);
+	int		argc = 4;
+	char	*argv[5] = {argv[0] = "aaa\0", argv[1] = "30", argv[2] = "40", argv[3] = "1000", argv[4] = NULL};
+	/* int		argc = 2;
+	char	*argv[3] = {argv[0] = "aaa\0", argv[1] = "10 40 30", argv[2] = NULL}; */
 
-	buffer = NULL;
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
-	init_vars(&stack_a, &stack_b);
+	buffer = NULL;
 	init_buffer(&buffer, argc, argv);
+	init_vars(&stack_a, &stack_b);
 	init_stack(stack_a, stack_b, buffer);
-
-	// Free the allocated memory
 	free_split(buffer);
-	int i = 0;
-	while (argv[i] != NULL)
-	{
-		//char *tmp = argv[i];
-		free(argv[i]);
-		i++;
-	}
-	free(argv);
+	sort_stack(stack_a, stack_b);
+	display_deque(stack_a);
+	exit_program(EXIT_SUCCESS, stack_a, stack_b);
 
 	return (0);
 }

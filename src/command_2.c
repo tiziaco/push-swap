@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:43:22 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/23 13:21:25 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:49:53 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void rr(t_deque *stack_a, t_deque *stack_b)
 	rb(stack_b);
 }
 
-int main(void)
+/* int main(void)
 {
 	t_deque	stack_a;
 	t_deque	stack_b;
@@ -97,4 +97,4 @@ int main(void)
 	free_deque(&stack_b);
 
 	return (0);
-}
+} */
