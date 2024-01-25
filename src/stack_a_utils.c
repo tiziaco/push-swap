@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:33:14 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 18:57:46 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 21:05:48 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static void	find_target_in_b(t_deque *stack_a, t_deque *stack_b)
 void	calculate_cost(t_deque *stack_a, t_deque *stack_b)
 {
 	t_node	*a;
-	t_node	*b;
 	int		len_a;
 	int		len_b;
 
