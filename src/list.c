@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:55:30 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/23 11:42:15 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:12:11 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_node	*create_node(int data)
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (new_node == NULL)
 		return (NULL);
-	new_node->data = data;
+	new_node->nbr = data;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);
@@ -128,7 +128,7 @@ void	display_deque(t_deque *deque)
 	current = deque->front;
 	while (current != NULL)
 	{
-		printf("%d ", current->data);
+		printf("%d ", current->nbr);
 		current = current->next;
 	}
 	printf("\n");

@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:49:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/23 11:56:38 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:01:58 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ void	init_vars(t_deque **stack_a, t_deque **stack_b)
         ft_printf("Error\n");
         exit(EXIT_FAILURE);
     }
+}
+
+void	exit_program(int code, t_deque *stack_a, t_deque *stack_b)
+{
+	free_deque(stack_a);
+	free_deque(stack_b);
+	exit(code);
 }
 
 /* int	main(int argc, char **argv)

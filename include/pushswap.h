@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/23 13:22:08 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/24 17:27:38 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,38 @@
 # define PUSHSWAP_H
 
 # include <stdlib.h>
+# include <limits.h>
+# include <stdbool.h>
 # include "libft.h"
 
 typedef struct s_node
 {
-	int data;
-	struct s_node* next;
-	struct s_node* prev;
+	int				nbr;
+	int				index;
+	int 			cost;
+	bool			above_med;
+	struct s_node	*target;
+	struct s_node	*next;
+	struct s_node	*prev;
 }	t_node;
 
 typedef struct s_deque
 {
-	struct s_node	*front;
-	struct s_node	*rear;
+	t_node	*front;
+	t_node	*rear;
 }	t_deque;
 
 // ** To be deleted ** //
 void	display_deque(t_deque *deque);
 // ******************* //
+void	exit_program(int code, t_deque *stack_a, t_deque *stack_b);
 
 int		is_num(const char* str);
 int		has_duplicates(char **buffer);
+int		lst_len(t_deque *deque);
+t_node	*lst_min(t_node *stack);
+t_node	*lst_max(t_node *stack);
+
 void	free_split(char **data);
 void	free_deque(t_deque *deque);
 
