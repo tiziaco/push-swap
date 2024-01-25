@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 14:25:04 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:04:54 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct s_node
 	int				nbr;
 	int				index;
 	int 			cost;
-	bool			above_med;
+	bool			above_avg;
+	bool			is_cheapest;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -74,6 +75,13 @@ void	rrb(t_deque *stack_b);
 void	rrr(t_deque *stack_a, t_deque *stack_b);
 
 void	sort_stack(t_deque *stack_a, t_deque *stack_b);
-void	simple_sort(t_deque *stack_a, t_deque *stack_b);
+void	simple_sort(t_deque *stack_a);
+void	long_sort(t_deque *stack_a, t_deque *stack_b);
+
+void	refresh_node_a(t_deque *stack_a, t_deque *stack_b);
+void	refresh_node_b(t_deque *stack_a, t_deque *stack_b);
+void	update_index(t_deque *stack);
+void	calculate_cost(t_deque *stack_a, t_deque *stack_b);
+void	find_cheapest(t_deque *stack);
 
 #endif

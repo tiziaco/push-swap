@@ -6,20 +6,18 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:02:47 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 14:45:35 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:22:50 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pushswap.h"
 
-void	simple_sort(t_deque *stack_a, t_deque *stack_b)
+void	simple_sort(t_deque *stack_a)
 {
 	t_node	*first;
 	t_node	*max_node;
 
 	first = stack_a->front;
-	if (is_ordered(stack_a) == 1 || has_only_one_elem(stack_a) == 1)
-		exit_program(EXIT_SUCCESS, stack_a, stack_b);
 	max_node = lst_max(first);
 	if (max_node == first) //Check if the current node is the biggest
 		ra(stack_a); //If so, rotate the top node to the bottom of the stack

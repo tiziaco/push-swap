@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:46:48 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/23 11:56:23 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:31:12 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	init_buffer(char ***buffer, int argc, char **argv)
 		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
-	ft_printf("Buffer: \n");
-	print_buffer(*buffer);
+	/* ft_printf("Buffer: \n");
+	print_buffer(*buffer); */
 }
 
