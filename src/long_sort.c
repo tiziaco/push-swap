@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:30:40 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 21:33:55 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:47:47 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	move_to_b(t_deque *stack_a, t_deque *stack_b)
 	t_node	*b;
 
 	a = stack_a->front;
-
 	while (!a->is_cheapest)
 		a = a->next;
 	while (a != stack_a->front)
@@ -45,7 +44,6 @@ void	move_to_a(t_deque *stack_a, t_deque *stack_b)
 	t_node	*b;
 
 	b = stack_b->front;
-
 	while (!b->is_cheapest)
 		b = b->next;
 	while (b != stack_b->front)
@@ -68,8 +66,8 @@ void	move_to_a(t_deque *stack_a, t_deque *stack_b)
 
 void	preprocess_turk_algo(t_deque *stack_a, t_deque *stack_b)
 {
-	int len_a;
-	int len_b;
+	int	len_a;
+	int	len_b;
 
 	len_a = lst_len(stack_a);
 	len_b = 0;

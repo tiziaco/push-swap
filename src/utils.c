@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:48:59 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 14:01:58 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:54:22 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_split(char **data)
 	free(data);
 }
 
-int	is_num(const char* str)
+int	is_num(const char *str)
 {
 	if (str == NULL || *str == '\0')
 		return (0);
@@ -59,7 +59,7 @@ int	has_duplicates(char **buffer)
 		}
 		i++;
 	}
-	return (0); // Returns 0 if duplicates are not found
+	return (0);
 }
 
 /* #include <stdio.h>

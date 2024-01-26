@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:33:14 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 21:05:48 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:53:21 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	update_index(t_deque *stack)
 {
 	int		i;
 	int		avg;
-	t_node *node;
+	t_node	*node;
 
 	i = 0;
 	avg = lst_len(stack) / 2;

@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:43:22 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 12:50:02 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:44:39 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,8 @@ void	rra(t_deque *stack_a)
 	{
 		last = stack_a->rear;
 		second_last = last->prev;
-
-		// Remove the last element from stack_a
 		stack_a->rear = second_last;
 		second_last->next = NULL;
-
-		// Add the last element to the front of stack_a
 		last->prev = NULL;
 		last->next = stack_a->front;
 		stack_a->front->prev = last;
@@ -35,7 +31,6 @@ void	rra(t_deque *stack_a)
 	ft_printf("rra\n");
 }
 
-// Function to reverse rotate elements of stack_b
 void	rrb(t_deque *stack_b)
 {
 	t_node	*last;
@@ -45,12 +40,8 @@ void	rrb(t_deque *stack_b)
 	{
 		last = stack_b->rear;
 		second_last = last->prev;
-
-		// Remove the last element from stack_b
 		stack_b->rear = second_last;
 		second_last->next = NULL;
-
-		// Add the last element to the front of stack_b
 		last->prev = NULL;
 		last->next = stack_b->front;
 		stack_b->front->prev = last;
@@ -59,7 +50,6 @@ void	rrb(t_deque *stack_b)
 	ft_printf("rrb\n");
 }
 
-// Function to perform rra and rrb at the same time
 void	rrr(t_deque *stack_a, t_deque *stack_b)
 {
 	rra(stack_a);

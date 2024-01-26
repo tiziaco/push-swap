@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:43:22 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 12:50:29 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:42:17 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,14 @@ void	pa(t_deque *stack_a, t_deque *stack_b)
 	if (stack_b->front != NULL)
 	{
 		top_b = stack_b->front;
-
-		// Remove top element from stack_b
 		stack_b->front = top_b->next;
 		if (stack_b->front != NULL)
 			stack_b->front->prev = NULL;
-
-		// Add the element to the top of stack_a
 		top_b->next = stack_a->front;
 		top_b->prev = NULL;
 		if (stack_a->front != NULL)
 			stack_a->front->prev = top_b;
 		stack_a->front = top_b;
-
-		// Update rear if necessary
 		if (stack_a->rear == NULL)
 			stack_a->rear = top_b;
 	}
@@ -98,20 +92,14 @@ void	pb(t_deque *stack_a, t_deque *stack_b)
 	if (stack_a->front != NULL)
 	{
 		top_a = stack_a->front;
-
-		// Remove top element from stack_a
 		stack_a->front = top_a->next;
 		if (stack_a->front != NULL)
 			stack_a->front->prev = NULL;
-
-		// Add the element to the top of stack_b
 		top_a->next = stack_b->front;
 		top_a->prev = NULL;
 		if (stack_b->front != NULL)
 			stack_b->front->prev = top_a;
 		stack_b->front = top_a;
-
-		// Update rear if necessary
 		if (stack_b->rear == NULL)
 			stack_b->rear = top_a;
 	}

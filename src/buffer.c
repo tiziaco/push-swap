@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:46:48 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 17:31:12 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:41:31 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,21 @@ void	print_buffer(char **data)
 	ft_printf("\n");
 }
 
-
 static void	init_buff_args(char ***buffer, int argc, char **argv)
 {
 	int	i;
 	int	j;
 
-	*buffer = (char **)malloc((argc+1) * sizeof(char *));
+	*buffer = (char **)malloc((argc + 1) * sizeof(char *));
 	if (*buffer == NULL)
 	{
-        ft_printf("Error\n");
-        exit(EXIT_FAILURE);
-    }
+		ft_printf("Error\n");
+		exit(EXIT_FAILURE);
+	}
 	i = 1;
 	j = 0;
 	while (argv[i] != 0)
 	{
-		//char *tmp = argv[i];
 		(*buffer)[j] = ft_strdup(argv[i]);
 		i++;
 		j++;
@@ -77,7 +75,4 @@ void	init_buffer(char ***buffer, int argc, char **argv)
 		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
-	/* ft_printf("Buffer: \n");
-	print_buffer(*buffer); */
 }
-

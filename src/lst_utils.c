@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:48:12 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 12:46:51 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:45:18 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	is_ordered(t_deque *stack)
 	while (current != NULL && current->next != NULL)
 	{
 		if (current->nbr > current->next->nbr)
-            return (0);
+			return (0);
 		current = current->next;
 	}
 	return (1);

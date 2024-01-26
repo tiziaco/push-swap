@@ -6,13 +6,13 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:43:22 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 12:49:53 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:43:33 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pushswap.h"
 
-void ra(t_deque *stack_a)
+void	ra(t_deque *stack_a)
 {
 	t_node	*first;
 	t_node	*second;
@@ -21,12 +21,8 @@ void ra(t_deque *stack_a)
 	{
 		first = stack_a->front;
 		second = first->next;
-
-		// Remove the first element from stack_a
 		stack_a->front = second;
 		second->prev = NULL;
-
-		// Add the first element to the rear of stack_a
 		first->next = NULL;
 		first->prev = stack_a->rear;
 		stack_a->rear->next = first;
@@ -35,20 +31,17 @@ void ra(t_deque *stack_a)
 	ft_printf("ra\n");
 }
 
-void rb(t_deque *stack_b)
+void	rb(t_deque *stack_b)
 {
 	t_node	*first;
 	t_node	*second;
 
-	if (!is_empty(stack_b) && stack_b->front != stack_b->rear) {
+	if (!is_empty(stack_b) && stack_b->front != stack_b->rear)
+	{
 		first = stack_b->front;
 		second = first->next;
-
-		// Remove the first element from stack_b
 		stack_b->front = second;
 		second->prev = NULL;
-
-		// Add the first element to the rear of stack_b
 		first->next = NULL;
 		first->prev = stack_b->rear;
 		stack_b->rear->next = first;
@@ -57,7 +50,7 @@ void rb(t_deque *stack_b)
 	ft_printf("rb\n");
 }
 
-void rr(t_deque *stack_a, t_deque *stack_b)
+void	rr(t_deque *stack_a, t_deque *stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
