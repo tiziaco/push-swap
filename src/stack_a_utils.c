@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:33:14 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 13:53:21 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:12:54 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	update_index(t_deque *stack)
 			node->above_avg = false;
 		else
 			node->above_avg = true;
+		node->target = NULL;
+		node->cost = 0;
 		node = node->next;
 		i++;
 	}

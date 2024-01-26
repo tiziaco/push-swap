@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:47:43 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 13:46:35 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:48:01 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	init_stack(t_deque *stack_a, t_deque *stack_b, char **buffer)
 		insert_rear(stack_a, ft_atoi(buffer[i]));
 		i++;
 	}
-	ft_printf("Stack A:\n");
-	display_deque(stack_a);
+	/* ft_printf("Stack A:\n");
+	display_deque(stack_a); */
 }

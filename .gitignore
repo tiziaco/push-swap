@@ -8,3 +8,5 @@ push_swap
 main
 test
 test*.c
+checker_linux
+visualizer/

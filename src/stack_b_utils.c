@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:33:14 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 13:55:08 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:15:22 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	find_target_in_a(t_deque *stack_a, t_deque *stack_b)
 			a = a->next;
 		}
 		if (b->target == NULL)
-			b->target = lst_min(stack_b->front);
+			b->target = lst_min(stack_a->front);
 		a = stack_a->front;
 		b = b->next;
 		best_target = LONG_MAX;
