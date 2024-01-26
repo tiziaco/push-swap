@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:55:30 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/25 12:47:53 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:22:49 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ void	init_deque(t_deque *deque)
 	deque->rear = NULL;
 }
 
-int	is_empty(t_deque *deque)
-{
-	return (deque->front == NULL);
-}
-
 // Function to check if the deque has only one element
 int	has_only_one_elem(t_deque *deque)
 {
@@ -44,79 +39,7 @@ int	has_only_one_elem(t_deque *deque)
 		|| (deque->front != NULL && deque->front->next == NULL));
 }
 
-void	insert_front(t_deque *deque, int data)
-{
-	t_node	*new_node;
-
-	new_node = create_node(data);
-	if (is_empty(deque))
-	{
-		deque->front = new_node;
-		deque->rear = new_node;
-	}
-	else
-	{
-		new_node->next = deque->front;
-		deque->front->prev = new_node;
-		deque->front = new_node;
-	}
-}
-
-void	insert_rear(t_deque *deque, int data)
-{
-	t_node	*new_node;
-
-	new_node = create_node(data);
-	if (is_empty(deque))
-	{
-		deque->front = new_node;
-		deque->rear = new_node;
-	}
-	else
-	{
-		new_node->prev = deque->rear;
-		deque->rear->next = new_node;
-		deque->rear = new_node;
-	}
-}
-
-void	delete_front(t_deque *deque)
-{
-	t_node	*temp;
-
-	if (is_empty(deque))
-	{
-		printf("Deque is empty. Cannot delete from the front.\n");
-		return;
-	}
-	temp = deque->front;
-	deque->front = temp->next;
-	if (deque->front == NULL)
-		deque->rear = NULL;
-	else
-		deque->front->prev = NULL;
-	free(temp);
-}
-
-void	delete_rear(t_deque *deque)
-{
-	t_node	*temp;
-
-	if (is_empty(deque))
-	{
-		printf("Deque is empty. Cannot delete from the rear.\n");
-		return;
-	}
-	temp = deque->rear;
-	deque->rear = temp->prev;
-	if (deque->rear == NULL)
-		deque->front = NULL;
-	else
-		deque->rear->next = NULL;
-	free(temp);
-}
-
-void	display_deque(t_deque *deque)
+/* void	display_deque(t_deque *deque)
 {
 	t_node	*current;
 
@@ -132,7 +55,7 @@ void	display_deque(t_deque *deque)
 		current = current->next;
 	}
 	printf("\n");
-}
+} */
 
 void	free_deque(t_deque *deque)
 {

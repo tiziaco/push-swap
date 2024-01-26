@@ -6,11 +6,16 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:48:12 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 13:45:18 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:56:13 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pushswap.h"
+
+int	is_empty(t_deque *deque)
+{
+	return (deque->front == NULL);
+}
 
 int	is_ordered(t_deque *stack)
 {

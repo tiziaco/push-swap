@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:49:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 14:48:19 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 17:24:09 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,36 @@ void	exit_program(int code, t_deque *stack_a, t_deque *stack_b)
 	exit(code);
 }
 
-int	main(int argc, char **argv)
+/* int	main(int argc, char **argv)
 {
 	char	**buffer;
 	t_deque	*stack_a;
 	t_deque	*stack_b;
+
+	if (argc <= 1)
+		return (EXIT_SUCCESS);
+	buffer = NULL;
+	init_buffer(&buffer, argc, argv);
+	init_vars(&stack_a, &stack_b);
+	init_stack(stack_a, stack_b, buffer);
+	free_split(buffer);
+	sort_stack(stack_a, stack_b);
+	exit_program(EXIT_SUCCESS, stack_a, stack_b);
+	return (0);
+} */
+
+int	main(void)
+{
+	char	**buffer;
+	t_deque	*stack_a;
+	t_deque	*stack_b;
+
+	//int		argc = 4;
+	//char	*argv[5] = {argv[0] = "aaa\0", argv[1] = "30", argv[2] = "40", 
+	//	argv[3] = "1000", argv[4] = NULL};
+	int		argc = 2;
+	char	*argv[3] = {argv[0] = "aaa\0", 
+		argv[1] = " ", argv[2] = NULL};
 
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
@@ -48,30 +73,6 @@ int	main(int argc, char **argv)
 	sort_stack(stack_a, stack_b);
 	//display_deque(stack_a);
 	exit_program(EXIT_SUCCESS, stack_a, stack_b);
+
 	return (0);
 }
-
-/* int	main(void)
-{
-	char	**buffer;
-	t_deque	*stack_a;
-	t_deque	*stack_b;
-
-	int		argc = 4;
-	char	*argv[5] = {argv[0] = "aaa\0", argv[1] = "30", argv[2] = "40", argv[3] = "1000", argv[4] = NULL};
-	int		argc = 2;
-	char	*argv[3] = {argv[0] = "aaa\0", argv[1] = "10 40 30 -45 80 54 4450 210 -760 459 -1", argv[2] = NULL};
-
-	if (argc <= 1)
-		return (EXIT_SUCCESS);
-	buffer = NULL;
-	init_buffer(&buffer, argc, argv);
-	init_vars(&stack_a, &stack_b);
-	init_stack(stack_a, stack_b, buffer);
-	free_split(buffer);
-	sort_stack(stack_a, stack_b);
-	display_deque(stack_a);
-	exit_program(EXIT_SUCCESS, stack_a, stack_b);
-
-	return (0);
-} */

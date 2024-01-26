@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:48:59 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 13:54:22 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/26 17:20:46 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,18 @@ void	free_split(char **data)
 
 int	is_num(const char *str)
 {
-	if (str == NULL || *str == '\0')
+	int i;
+
+	i = 0;
+	if (str == NULL || str[i] == '\0' || str[i] == ' ')
 		return (0);
-	if (*str == '+' || *str == '-')
-		++str;
-	while (*str != '\0')
+	if ((str[i] == '+' || str[i] == '-') && ft_isdigit((str[i + 1])))
+		i++;
+	while (str[i] != '\0')
 	{
-		if (!ft_isdigit(*str))
+		if (!ft_isdigit(str[i]))
 			return (0);
-		++str;
+		i++;
 	}
 	return (1);
 }
@@ -60,6 +63,34 @@ int	has_duplicates(char **buffer)
 		i++;
 	}
 	return (0);
+}
+
+long	ft_atol(const char *str)
+{
+	long	sign;
+	long	result;
+	int		i;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] && (str[i]>= '0' && str[i] <= '9'))
+	{
+		if (str[i]>= '0' && str[i] <= '9')
+			result = result * 10 + (str[i] - '0');
+		else
+			return (result *= sign);
+		i++;
+	}
+	return (result *= sign);
 }
 
 /* #include <stdio.h>
