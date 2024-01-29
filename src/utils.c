@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:48:59 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 17:20:46 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:54:22 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_split(char **data)
 
 int	is_num(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str == NULL || str[i] == '\0' || str[i] == ' ')
@@ -43,26 +43,6 @@ int	is_num(const char *str)
 		i++;
 	}
 	return (1);
-}
-
-int	has_duplicates(char **buffer)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (buffer[i] != NULL)
-	{
-		j = i + 1;
-		while (buffer[j] != NULL)
-		{
-			if (ft_strcmp(buffer[i], buffer[j]) == 0)
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
 }
 
 long	ft_atol(const char *str)
@@ -82,9 +62,9 @@ long	ft_atol(const char *str)
 			sign *= -1;
 		i++;
 	}
-	while (str[i] && (str[i]>= '0' && str[i] <= '9'))
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
-		if (str[i]>= '0' && str[i] <= '9')
+		if (str[i] >= '0' && str[i] <= '9')
 			result = result * 10 + (str[i] - '0');
 		else
 			return (result *= sign);

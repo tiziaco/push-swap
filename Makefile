@@ -6,7 +6,7 @@
 #    By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 11:38:10 by tiacovel          #+#    #+#              #
-#    Updated: 2024/01/23 10:45:09 by tiacovel         ###   ########.fr        #
+#    Updated: 2024/01/29 12:25:50 by tiacovel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,11 @@ LINK = -Llib/libft -lft
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@echo "Checking if libft.a exists: $(wildcard $(LIBFT_DIR)/libft.a)"
 	@if [ ! -f $(LIBFT_DIR)/libft.a ]; then \
  		echo "Building libft..."; \
 		make -C $(LIBFT_DIR); \
 	else \
-		echo "libft.a already exists, skipping build."; \
+		echo "libft.a already exists."; \
 	fi
 		$(CC) -g -O0 $(OBJ) -Llib/libft -lft -o $(NAME)
 
@@ -48,4 +47,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all macos clean fclean re
+.PHONY: all clean fclean re

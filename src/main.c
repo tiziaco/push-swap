@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:49:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 17:24:09 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:44:01 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	exit_program(int code, t_deque *stack_a, t_deque *stack_b)
 	exit(code);
 }
 
-/* int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	**buffer;
 	t_deque	*stack_a;
@@ -44,13 +44,12 @@ void	exit_program(int code, t_deque *stack_a, t_deque *stack_b)
 	init_buffer(&buffer, argc, argv);
 	init_vars(&stack_a, &stack_b);
 	init_stack(stack_a, stack_b, buffer);
-	free_split(buffer);
 	sort_stack(stack_a, stack_b);
 	exit_program(EXIT_SUCCESS, stack_a, stack_b);
 	return (0);
-} */
+}
 
-int	main(void)
+/* int	main(void)
 {
 	char	**buffer;
 	t_deque	*stack_a;
@@ -61,7 +60,7 @@ int	main(void)
 	//	argv[3] = "1000", argv[4] = NULL};
 	int		argc = 2;
 	char	*argv[3] = {argv[0] = "aaa\0", 
-		argv[1] = " ", argv[2] = NULL};
+		argv[1] = "    ", argv[2] = NULL};
 
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
@@ -75,4 +74,4 @@ int	main(void)
 	exit_program(EXIT_SUCCESS, stack_a, stack_b);
 
 	return (0);
-}
+} */

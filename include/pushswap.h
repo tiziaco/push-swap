@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:52 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 16:44:02 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:43:50 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	exit_program(int code, t_deque *stack_a, t_deque *stack_b);
 
 long	ft_atol(const char *str);
 int		is_num(const char *str);
-int		has_duplicates(char **buffer);
+int		has_duplicates(t_deque *stack_a, t_deque *stack_b);
 int		has_only_one_elem(t_deque *deque);
 int		is_ordered(t_deque *stack);
 int		lst_len(t_deque *deque);

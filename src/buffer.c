@@ -6,7 +6,7 @@
 /*   By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 10:46:48 by tiacovel          #+#    #+#             */
-/*   Updated: 2024/01/26 13:41:31 by tiacovel         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:54:43 by tiacovel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ static int	check_buffer(char **buffer)
 			return (1);
 		i++;
 	}
-	if (has_duplicates(buffer) == 1)
-		return (1);
 	return (0);
 }
 
@@ -69,7 +67,7 @@ void	init_buffer(char ***buffer, int argc, char **argv)
 		*buffer = ft_split(argv[1], ' ');
 	else
 		init_buff_args(buffer, argc, argv);
-	if (check_buffer(*buffer) == 1)
+	if (**buffer == NULL || check_buffer(*buffer) == 1)
 	{
 		free_split(*buffer);
 		ft_printf("Error\n");
