@@ -4,6 +4,7 @@
 *.a
 *.o
 *.out
+*.txt
 push_swap
 main
 test
