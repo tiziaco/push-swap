@@ -6,13 +6,12 @@
 #    By: tiacovel <tiacovel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 11:38:10 by tiacovel          #+#    #+#              #
-#    Updated: 2024/01/29 12:25:50 by tiacovel         ###   ########.fr        #
+#    Updated: 2024/06/04 16:40:28 by tiacovel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-LIBFT_DIR = lib/libft
-LIBFT	= lib/libft/libft.a
+LIBFT_PATH = lib/libft
 
 SRC =	$(wildcard src/*.c)
 
@@ -23,16 +22,30 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 LINK = -Llib/libft -lft
 
-all: $(NAME)
+# Color and styles
+COLOR_RESET = \033[0m
+BOLD_GREEN = \033[1;32m
+GREEN = \033[0;32m
+RED = \033[0;31m
+HIDE = @
+
+all: dependencies $(NAME)
+
+dependencies:
+    # Check if libft has been downloaded
+    ifeq ($(wildcard $(LIBFT_PATH)/*),)
+		@git submodule update --init --recursive
+		@echo "$(GREEN)Submodules downloaded.$(COLOR_RESET)"
+    endif
+
+    # Check if libft is compiled
+    ifeq ($(wildcard $(LIBFT_PATH)/libft.a),)
+		@make -s -C $(LIBFT_PATH)
+    endif
+	@echo "$(GREEN)Libft compiled ✅$(COLOR_RESET)"
 
 $(NAME): $(OBJ)
-	@if [ ! -f $(LIBFT_DIR)/libft.a ]; then \
- 		echo "Building libft..."; \
-		make -C $(LIBFT_DIR); \
-	else \
-		echo "libft.a already exists."; \
-	fi
-		$(CC) -g -O0 $(OBJ) -Llib/libft -lft -o $(NAME)
+		$(CC) -g -O0 $(OBJ) $(LINK) -o $(NAME)
 
 src/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -47,4 +60,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all dependencies clean fclean re
